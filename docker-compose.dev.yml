@@ -1,0 +1,23 @@
+version: '3.7'
+
+networks:
+  cywareness:
+    name: cywareness
+    driver: bridge
+
+services:
+#####################################################################
+#                       services                                    #
+#####################################################################
+  calculator-service:
+    hostname: calculator-service
+    container_name: calculator-service
+    environment:
+      - RUNS_IN_DOCKER=1
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - "50772:50772"
+    networks:
+      - cywareness
+  

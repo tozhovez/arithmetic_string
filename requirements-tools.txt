@@ -1,0 +1,8 @@
+asyncio==3.4.3
+docker-compose==1.27.4
+PyInquirer==1.0.3
+tabulate==0.8.7
+tenacity==6.2.0
+
+
+

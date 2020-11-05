@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+  cywareness:
+    name: cywareness
+    driver: bridge
+
+services:
+
+#####################################################################
+#                       services                                    #
+#####################################################################
+  calculator-service:
+    build:
+      context: calculator-service/.
+      dockerfile: Dockerfile
+      args:
+        BUILD_VERSION: ${BUILD_VERSION}
+    logging:
+      driver: "json-file"
+

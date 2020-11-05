@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel=stylesheet type=text/css href="{{ url('static', filename='css/custom.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/carlo/jquery-base64/master/jquery.base64.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+           <h1><a href="">Calculator</a></h1>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <input type="text" name="arithmetic" id="arithmetic" class="form-control input-sm" placeholder="enter arithmetic expression" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s4 offset-s4">
+                    <button id="submitButton" class="waves-effect waves-light btn-large blue darken-1">calculate</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="panel-footer">
+                        <h4>
+                            <a href="#" id="result"></a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+    </footer>
+    <script type="text/javascript">
+    $(function() {
+
+        $('#submitButton').click(function() {
+            if($('#arithmetic').val().length === 0){
+
+                $('#arithmetic').addClass('error').focus();
+
+            }else{
+             $('#arithmetic').removeClass('error');
+             $.ajax({
+                 type: "POST",
+                 url: "/calculate",
+                 data: JSON.stringify({'data' : $.base64.encode($('#arithmetic').val())}),
+                 success: returnSuccess,
+                 dataType: 'json',
+                 contentType: "application/json",
+             });
+             }
+     });
+});
+
+function returnSuccess(data, textStatus, jqXHR) {
+    if(data.result) {
+        $('#result').text(data.result);
+        $('#arithmetic').val("");
+
+    } else {
+        $('#result').text("Enter ");
+    }
+}
+</script>
+</body>
+</html>
