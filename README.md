@@ -1,4 +1,4 @@
-# arithmetic_string
+
 # Arithmetic String
 
 **The following is your assignment:**
