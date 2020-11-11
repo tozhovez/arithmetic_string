@@ -28,7 +28,7 @@ $ cd arithmetic_string
 $ python -m pip install -r requirements.txt
 ```
 
-##Run app server:
+## Run app server:
 
 
 ```bash
@@ -40,7 +40,7 @@ $ python based_api_server/main.py
 
 ```
 
-##Run app client:
+## Run app client:
 
 ```bash
 $ cd arithmetic_string/calculator-service
