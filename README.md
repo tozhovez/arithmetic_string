@@ -51,7 +51,7 @@ $ python calculate_client_web/main.py
 
 ```
 
-##Open browser client :
+## Open browser client :
 
 ```text
 http://127.0.0.1:8080
