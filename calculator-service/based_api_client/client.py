@@ -7,7 +7,7 @@ import pathlib
 
 async def main():
     url = "http://127.0.0.1:50772/calculate"
-    string_data = "5+5-(8+4)*5"
+    string_data = "(1+1-1/2)-(0.1*10-1)-(-1+1*2-1)*2"
     d = string_data.encode("UTF-8")
     b = base64.b64encode(d).decode("UTF-8")
     print(string_data)

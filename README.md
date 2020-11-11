@@ -16,41 +16,56 @@
 
 **{“result”: 4}**
 
-## Setup
-
-Clone the repo, create virtualenv if necessary.
+# Setup
+## Use Python 3.7+ (Python 3.8.5)
+## Clone the repo, create virtualenv if necessary.
 
 [https://github.com/tozhovez/arithmetic\_string.git](https://github.com/tozhovez/arithmetic_string.git)
 
-Install the app:
+## Install the dependencies, listed in the requirements.txt file:
+```bash
+$ cd arithmetic_string
+$ python -m pip install -r requirements.txt
+```
+
+##Run app server:
+
 
 ```bash
 $ cd arithmetic_string/calculator-service
+$ python based_api_server/main.py
 
-$ pip install -e . 
-```
-
-Run app:
-
-```text
-$ cd arithmetic_string/calculator-service
-$ python main.py 
-
-
-
-DEBUG:asyncio:Using selector: EpollSelector
 ======== Running on http://127.0.0.1:50772 ========
 (Press CTRL+C to quit)
 
 ```
 
-Open browser:
+##Run app client:
 
-```text
-http://127.0.0.1:50772
+```bash
+$ cd arithmetic_string/calculator-service
+$ python calculate_client_web/main.py
+
+======== Running on http://127.0.0.1:8080 ========
+(Press CTRL+C to quit)
+
 ```
 
+##Open browser client :
 
+```text
+http://127.0.0.1:8080
+```
+
+## Run shell client:
+```bash
+$ cd arithmetic_string/calculator-service
+$ python based_api_client/client.py
+
+(1+1-1/2)-(0.1*10-1)-(-1+1*2-1)*2
+{"result": 1.5}
+
+```
 
 ## 
 
