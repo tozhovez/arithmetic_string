@@ -52,7 +52,7 @@
              $('#arithmetic').removeClass('error');
              $.ajax({
                  type: "POST",
-                 url: "/calculate",
+                 url: "/calculate_string",
                  data: JSON.stringify({'data' : $.base64.encode($('#arithmetic').val())}),
                  success: returnSuccess,
                  dataType: 'json',

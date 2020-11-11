@@ -3,14 +3,10 @@ import ply.yacc as yacc
 
 
 def make_calculator():
-
     variables = {}  # Dictionary of stored variables
 
     # Calculator tokenizing rules
-    tokens = (
-        "NAME",
-        "NUMBER",
-    )
+    tokens = ("NAME", "NUMBER")
     literals = ["=", "+", "-", "*", "/", "(", ")"]
     t_ignore = " \t"
     t_NAME = r"[a-zA-Z_][a-zA-Z0-9_]*"
@@ -82,13 +78,14 @@ def make_calculator():
             p[0] = 0
 
     def p_error(p):
-        print(f"Syntax error {p.value}") if p else print("Syntax error at EOF")
+        print(f"Syntax error {p.value}" if p else "Syntax error at EOF")
 
     # Build the parser
     parser = yacc.yacc()
 
     # Input function
-    def input(text):
+    def input_string(text):
         result = parser.parse(text, lexer=lexer)
         return result
-    return input
+
+    return input_string

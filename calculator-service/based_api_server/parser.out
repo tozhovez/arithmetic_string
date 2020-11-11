@@ -25,7 +25,7 @@ Terminals, with rules where they appear
 =                    : 1
 NAME                 : 1 10
 NUMBER               : 9
-error                :
+error                : 
 
 Nonterminals, with rules where they appear
 
