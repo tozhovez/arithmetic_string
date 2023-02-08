@@ -16,7 +16,7 @@ click==7.1.2
 cookiecutter==1.7.0
 coverage==5.3
 create-aio-app==0.0.9
-cryptography==3.2.1
+cryptography==39.0.1
 devtools==0.6.1
 flake8==3.8.4
 future==0.18.2
